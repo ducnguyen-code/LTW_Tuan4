@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" >
+  </head>
+  <body>
+      <div class="container">
+            <div class="title">USERDETAIL</div>
+            <div class="error"></div>
+            <div class="form">
+                <div class="form-group" >
+                    <div style="display: flex; margin-top: 40px;">
+                        <div class="label">First Name <span>*</span></div>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="input"> 
+                            <input style="border-color: #333;" type="text" name="" id="fistname" class="form-control" size="150" placeholder="Enter First name" required> 
+                        </div>
+                    </div>
+                    <div style="display: flex; margin-top: 40px;">
+                        <div class="label">Last Name <span>*</span></div>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="input"> 
+                            <input style="border-color: #333;" type="text" name="" id="lastname" class="form-control" size="150"  placeholder="Enter Last name"> 
+                        </div>
+                    </div>
+                    <div style="display: flex; margin-top: 40px;">
+                        <div class="label">Email <span>*</span></div>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="input"> 
+                            <input style="border-color: #333;" type="text" name="" id="email" class="form-control" size="150"  placeholder="Enter Email"> 
+                        </div>
+                    </div>
+                    <div style="display: flex; margin-top: 40px;">
+                        <div class="label">UserName <span>*</span></div>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="input"> 
+                            <input style="border-color: #333;" type="text" name="" id="username" class="form-control" size="150"  placeholder="Enter Username"> 
+                        </div>
+                    </div>
+                    <div style="display: flex; margin-top: 40px;">
+                        <div class="label">Password <span>*</span></div>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="input"> 
+                            <input style="border-color: #333;" type="password" name="" id="password" class="form-control" size="150"  placeholder="Enter Password"> 
+                        </div>
+                    </div>
+                    <div style="display: flex; margin-top: 40px;">
+                        <div class="label">Confirm Passowrd <span>*</span></div>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="input"> 
+                            <input style="border-color: #333;" type="password" name="" id="confirmpassword" class="form-control" size="150"   placeholder="Enter ConfirmPassword"> 
+                        </div>
+                    </div>
+
+
+                  
+                  
+                  
+                </div>
+                <button onclick=" verifyData()" type="button" class="btn btn-primary"  style="padding: 0.5rem auto; margin-left: 200px;">Register</button>
+                <div style="box-shadow:1px 1px 1px rgb(133, 132, 132); height:1px; margin-top: 30px;">&nbsp;</div>
+                <div style="color: #333; font-size: 25px; font-weight: bold; margin-top: 20px;">USER LIST</div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>LAST NAME</th>
+                            <th>FIRST NAME</th>
+                            <th>EMAIL </th>
+                            <th>USER NAME </th>
+                        </tr>
+                    </thead>
+                    <tbody id="listuser">
+                    </tbody>
+                </table>
+
+
+            </div>
+      </div>
+      <script>
+          var arrayUser=[];
+          function checkPassword(){
+              let password=document.getElementById('password').value;
+              console.log(password);
+              let confirmpassword=document.getElementById('confirmpassword').value;
+              console.log(confirmpassword);
+              if(confirmpassword===password)
+              {
+                  
+                  return true;
+              }
+              else
+              {
+                  
+                  return false;
+              }
+          }
+
+          ////////////////////
+   
+          let mail1=document.getElementById('email');
+          function ValidateEmail(input) {
+
+            var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+            if (input.value.match(mail1)) {
+                return true;
+
+            } else {
+                return false;
+
+            }
+
+            }
+       
+
+    // emailIsValid('tyler@tyler@ui.dev') // false
+    
+     function checkEmtyInput(){
+         let email=document.getElementById('email');
+         let password=document.getElementById('password');
+         let username=document.getElementById('username');
+         let confirmpassword=document.getElementById('confirmpassword');
+         let lastname=document.getElementById('lastname');
+         let firstname=document.getElementById('fistname');
+         if(email.value===""){
+           
+            email.style.borderColor = "red";
+            return false;
+         }
+         else
+         {
+            email.style.borderColor = "#333"
+         }
+         if(password.value===""){
+           
+            password.style.borderColor = "red";
+            return false;
+         }
+         else
+         {
+            email.style.borderColor = "#333"
+         }
+         if(username.value===""){
+           
+            username.style.borderColor = "red";
+            return false;
+         }
+         else
+         {
+            email.style.borderColor = "#333"
+         }
+         if(confirmpassword.value===""){
+           
+            confirmpassword.style.borderColor = "red";
+            return false;
+         }
+         else
+         {
+            email.style.borderColor = "#333"
+         }
+         if(lastname.value===""){
+           
+            lastname.style.borderColor = "red";
+            return false;
+         }
+         else
+         {
+            email.style.borderColor = "#333"
+         }
+         if(firstname.value===""){
+           
+            firstname.style.borderColor = "red";
+            return false
+         }
+         else
+         {
+            email.style.borderColor = "#333"
+         }
+         return true;
+
+     }
+     
+    //emailIsValid('tyler@ui.dev') 
+        function verifyData(){
+            checkPassword();
+            ValidateEmail(mail1);
+            checkEmtyInput();
+            console.log(checkPassword());
+            console.log(ValidateEmail(mail1));
+            console.log( checkEmtyInput());
+         
+             if(checkEmtyInput()===true && ValidateEmail(mail1)===true && checkPassword()===true)
+             {
+                let emaildata=document.getElementById('email').value;
+                let passworddata=document.getElementById('password').value;
+                let usernamedata=document.getElementById('username').value;
+                let confirmpassworddata=document.getElementById('confirmpassword').value;
+                let lastnamedata=document.getElementById('lastname').value;
+                let firstnamedata=document.getElementById('fistname').value;
+                    let data={
+                        email:emaildata,
+                        password:passworddata,
+                        username:usernamedata,
+                        lastname:lastnamedata,
+                        firstname:firstnamedata
+                    }
+                    arrayUser=[...arrayUser,data]
+                    console.log(arrayUser);
+             }
+             function indata(){
+                 
+                
+                 let arr=document.getElementById('listuser').innerHTML=arrayUser.map((value,index)=>(`<tr>
+                            <td scope="row">${index}</td>
+                            <td>${value.lastname}</td>
+                            <td>${value.firstname}</td>
+                            <td>${value.email}</td>
+                            <td>${value.username}</td>
+                        </tr>`))
+                 console.log(arr);
+             }
+             indata();
+        
+        }
+
+      </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
